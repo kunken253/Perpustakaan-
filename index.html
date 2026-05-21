@@ -1,0 +1,138 @@
+Pasted content
+6.80 KB •135 lines
+Formatting may be inconsistent from source
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel — PerpusKu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="admin.html" class="logo">
+            <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="6" y="8" width="6" height="34" rx="2" fill="#c9963a"/>
+                <rect x="10" y="9" width="30" height="32" rx="3" fill="#2f4235"/>
+                <rect x="12" y="11" width="26" height="28" rx="2" fill="#f7f2e9"/>
+                <line x1="16" y1="17" x2="34" y2="17" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="16" y1="21" x2="34" y2="21" stroke="#c9963a" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+                <line x1="16" y1="25" x2="28" y2="25" stroke="#c9963a" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+                <!-- gear -->
+                <circle cx="34" cy="34" r="10" fill="#1c2e22"/>
+                <circle cx="34" cy="34" r="4" fill="none" stroke="#c9963a" stroke-width="2"/>
+                <circle cx="34" cy="24.5" r="1.5" fill="#c9963a"/>
+                <circle cx="34" cy="43.5" r="1.5" fill="#c9963a"/>
+                <circle cx="24.5" cy="34" r="1.5" fill="#c9963a"/>
+                <circle cx="43.5" cy="34" r="1.5" fill="#c9963a"/>
+                <circle cx="27.4" cy="27.4" r="1.5" fill="#c9963a"/>
+                <circle cx="40.6" cy="40.6" r="1.5" fill="#c9963a"/>
+                <circle cx="27.4" cy="40.6" r="1.5" fill="#c9963a"/>
+                <circle cx="40.6" cy="27.4" r="1.5" fill="#c9963a"/>
+            </svg>
+            <span>Admin Panel</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">← Kembali ke Katalog</a>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+
+    <!-- ── BORROW REQUESTS PANEL ── -->
+    <section class="requests-section" id="requestsSection">
+        <div class="requests-header">
+            <h2>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-.2em;margin-right:.4rem">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="#c9963a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Permintaan Peminjaman
+                <span class="pending-badge" id="pendingBadge" style="display:none">0</span>
+            </h2>
+            <div class="requests-tabs">
+                <button class="req-tab active" data-filter="pending">Menunggu</button>
+                <button class="req-tab" data-filter="approved">Disetujui</button>
+                <button class="req-tab" data-filter="rejected">Ditolak</button>
+                <button class="btn-refresh" id="refreshRequests" title="Refresh permintaan">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path d="M1 4v6h6M23 20v-6h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20.49 9A9 9 0 005.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 013.51 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Refresh
+                </button>
+            </div>
+        </div>
+        <div id="requestsList" class="requests-list">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Memuat permintaan…</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BOOK MANAGEMENT ── -->
+    <div class="admin-container">
+        <!-- Form Tambah Buku -->
+        <section class="form-section">
+            <h2>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-.2em;margin-right:.4rem">
+                    <circle cx="12" cy="12" r="10" stroke="#c9963a" stroke-width="1.5"/>
+                    <path d="M12 8v8M8 12h8" stroke="#c9963a" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Tambah Koleksi Baru
+            </h2>
+            <form id="addBookForm">
+                <div class="form-group">
+                    <input type="text" id="judul" placeholder="Judul Buku" required>
+                    <input type="text" id="penulis" placeholder="Nama Penulis" required>
+                </div>
+                <div class="form-group">
+                    <select id="kategori" required>
+                        <option value="">— Pilih Kategori —</option>
+                        <option value="Teknologi">Teknologi</option>
+                        <option value="Fiksi">Fiksi</option>
+                        <option value="Sains">Sains</option>
+                        <option value="Sejarah">Sejarah</option>
+                    </select>
+                </div>
+                <input type="url" id="sampulUrl" placeholder="URL Sampul Buku (https://…)" style="margin-bottom:.75rem">
+                <textarea id="sinopsis" placeholder="Tulis sinopsis buku…" rows="4" required></textarea>
+                <button type="submit" class="btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="vertical-align:-.2em;margin-right:.4rem">
+                        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    Tambahkan ke Koleksi
+                </button>
+            </form>
+        </section>
+
+        <!-- Daftar Buku -->
+        <section class="list-section">
+            <h2>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:-.2em;margin-right:.4rem">
+                    <path d="M4 6h16M4 10h16M4 14h10" stroke="#c9963a" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                Daftar Koleksi Saat Ini
+                <span class="count" id="adminCount" style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#8a7e6e;font-weight:400;margin-left:.5rem"></span>
+            </h2>
+            <div id="adminBookList" class="admin-list">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Memuat data…</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</main>
+
+<!-- ── TOAST ── -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>
