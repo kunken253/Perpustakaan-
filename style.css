@@ -1,3 +1,6 @@
+Pasted content
+28.57 KB •1,114 lines
+Formatting may be inconsistent from source
 /* ============================================
    PERPUSKU — Digital Library
    Aesthetic: Warm Editorial / Classic-Modern
@@ -419,7 +422,7 @@ body {
 .empty-state p { font-family: 'Lora', serif; font-size: 1.05rem; }
 
 /* ============================================
-   SYNOPSIS / INFO MODAL
+   SYNOPSIS MODAL
    ============================================ */
 .modal-overlay {
   display: none;
@@ -856,8 +859,7 @@ body {
 .form-group select,
 form textarea,
 form input[type="text"],
-form input[type="url"],
-form input[type="number"] {
+form input[type="url"] {
   width: 100%;
   padding: .72rem 1rem;
   background: var(--cream);
@@ -994,19 +996,6 @@ form textarea::placeholder { color: var(--muted); }
   white-space: nowrap;
 }
 .btn-return:hover { background: var(--success); color: var(--white); border-color: var(--success); }
-
-.btn-edit {
-  width: 32px; height: 32px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  border: none;
-  background: transparent;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  color: var(--muted);
-  transition: background var(--transition), color var(--transition);
-}
-.btn-edit:hover { background: rgba(201,150,58,.12); color: var(--amber); }
 
 .btn-delete {
   width: 32px; height: 32px;
